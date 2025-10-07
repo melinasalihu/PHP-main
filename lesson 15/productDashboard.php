@@ -5,7 +5,7 @@ if(empty($_SESSION['username']))
 {
   header('Location: login.php');
 }
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM product";
 $selectUsers=$conn->prepare($sql);
 $selectUsers->execute();
 
@@ -70,10 +70,10 @@ $users_data = $selectUsers->fetchAll();
             </a>
           </li>
           <li class="nav-item">
-          <?php foreach ($users_data as $user_data) { ?>
+          <?php foreach ($product_data as $product_data) { ?>
 
 
-            <a class="nav-link" href="profile.php?id=<?= $user_data['id'];?>">
+            <a class="nav-link" href="profile.php?id=<?= $product_data['id'];?>">
             <?php  } ?>
               <span data-feather="file"></span>
               Edit Profile
@@ -97,40 +97,41 @@ $users_data = $selectUsers->fetchAll();
         include_once('config.php');
 
 
-        $getUsers = $conn->prepare("SELECT * FROM users");
+        $getproduct = $conn->prepare("SELECT * FROM product");
 
 
-        $getUsers->execute();
+        $getproduct->execute();
 
 
-        $users = $getUsers->fetchAll();
+        $product = $getproduct->fetchAll();
 
 
         ?>
 
+         <a href="addProduct" id="product"> Add product</a>
 
         <table>
           <thead>
             <tr>
               <th>ID</th>
-              <th>Username</th>
-              <th>Name</th>
-              <th>Surname</th>
-              <th>Email</th>
+              <th>Title</th>
+              <th>descriptipn</th>
+              <th>quantity</th>
+              <th>price</th>
               <th>Update</th>
             </tr>
           </thead>
           <?php
-            foreach ($users as $user ) {
+            foreach ($product as $product ) {
           ?>
           <tbody>
             <tr> 
-              <td> <?= $user['id'] ?> </td>
-              <td> <?= $user['username'] ?> </td>
-              <td> <?= $user['name']  ?> </td> 
-              <td> <?= $user['surname']  ?> </td> 
-              <td> <?= $user['email']  ?> </td>
-              <td> <?= "<a href='delete.php?id=$user[id]'> Delete</a>| <a href='profile.php?id=$user[id]'> Update </a>"?></td>
+              <td> <?= $product['id'] ?> </td>
+              <td> <?= $product['username'] ?> </td>
+              <td> <?= $product['name']  ?> </td> 
+              <td> <?= $product['surname']  ?> </td> 
+              <td> <?= $product['email']  ?> </td>
+              <td> <?= "<a href='deleteProduct.php?id=$product[id]'> Delete</a>| <a href='profile.php?id=$product[id]'> Update </a>"?></td>
             </tr>
           
             <?php 
