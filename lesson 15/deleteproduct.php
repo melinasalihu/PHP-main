@@ -4,7 +4,7 @@ include_once("config.php");
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM users WHERE id=:id";
+$sql = "DELETE FROM products WHERE id=:id";
 
 $getUsers = $conn->prepare($sql);
 
