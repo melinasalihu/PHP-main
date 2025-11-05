@@ -1,0 +1,243 @@
+/* style.css - Dizajn Estetik Rozë/Më i Butë */
+
+:root {
+    /* Ngjyrat Rozë të Personalizuara */
+    --pink-accent: #ffb6c1;      /* Rozë e Lehtë (Light Pink) - Për sfondin e lehtë */
+    --pink-dark: #ff69b4;        /* Rozë e Ndezur (Hot Pink) - Për Butona dhe Theksim */
+    --pink-shadow: #fbe0e7;      /* Rozë shumë e zbehtë për hije */
+    
+    /* Ngjyrat Strukturore */
+    --primary-color: var(--pink-dark);  
+    --primary-dark-hover: #cc5290;
+    --text-color: #343a40;
+    --secondary-color: #6c757d;
+    
+    /* Sfondi dhe Kufijtë */
+    --background-page: #fff5f8; /* Sfondi shumë i lehtë Rozë */
+    --background-card: #ffffff; 
+    --border-color: #f1e4e9;     
+    
+    /* Mesazhet */
+    --success-bg: #d4edda;
+    --error-bg: #f8d7da;
+}
+
+/* 1. Stilizimi Bazik (Ngjyra e Sfondit të Tërë Faqes) */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-page); /* SFONDI I TËRË FAQES ËSHTË ROZË E ZBEHTË */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--primary-dark-hover);
+    text-decoration: underline;
+}
+
+/* 2. Kontejneri Qendror */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: var(--background-card);
+    padding: 30px;
+    border-radius: 15px; /* Këndet shumë të rrumbullakëta */
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.1); /* Hije me nuancë rozë */
+}
+
+/* 3. Kokja dhe Statusi i Autentifikimit */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 600;
+}
+
+.admin-note {
+    color: #28a745;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* 4. Postimet (Karta - Me Kufij dhe Hije të Buta) */
+.post {
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--background-card);
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.post:hover {
+    box-shadow: 0 4px 12px var(--pink-shadow); /* Hije e butë rozë në hover */
+    transform: translateY(-2px);
+}
+
+.post h3 a {
+    color: var(--primary-dark-hover);
+}
+
+/* 5. Formularet dhe Inputet (Përdoret për Login, Register, Create Post) */
+form {
+    background: #fffafa; /* Sfondi i formularit shumë i zbehtë rozë */
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Më të rrumbullakëta */
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="password"]:focus, 
+textarea:focus {
+    border-color: var(--pink-dark); 
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.3); /* Hije e butë rozë në fokus */
+}
+
+/* 6. Butonat (Rozë e Ndezur) */
+button {
+    background-color: var(--primary-color); /* Rozë e Ndezur */
+    color: white;
+    padding: 14px 20px; /* Butona më të mëdhenj */
+    border: none;
+    cursor: pointer;
+    border-radius: 8px; 
+    width: 100%;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3); /* Hije rozë poshtë butonit */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    background-color: var(--primary-dark-hover); 
+    box-shadow: 0 2px 5px rgba(255, 105, 180, 0.4);
+}
+
+/* Butoni Përditëso */
+button.update {
+    background-color: #ffd700; /* Ngjyra e artë për dallim */
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+button.update:hover {
+    background-color: #e0c100;
+}
+
+/* 7. Komentet (view_post.php) */
+.full-post {
+    border-left: 5px solid var(--pink-accent); /* Vija anësore rozë e butë */
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    background-color: #fcfcfc;
+}
+
+.comment {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #fffbfd;
+    border-left: 4px solid var(--pink-dark); 
+    border-radius: 6px;
+}
+
+.delete-btn {
+    color: #dc3545 !important;
+    font-weight: 600;
+}
+
+/* 8. Mesazhet */
+.success { 
+    background-color: var(--success-bg); 
+    color: #155724; 
+    padding: 12px; 
+    margin-bottom: 20px; 
+    border: 1px solid #c3e6cb; 
+    border-radius: 4px; 
+}
+
+.error { 
+    background-color: var(--error-bg); 
+    color: #721c24; 
+    padding: 12px; 
+    margin-bottom: 20px; 
+    border: 1px solid #f5c6cb; 
+    border-radius: 4px; 
+}
+
+/* 9. Formulari i Kërkimit (Search Bar) */
+.search-bar {
+    margin-bottom: 25px;
+}
+
+.search-bar form {
+    /* Heqni padding/background të formularit të përgjithshëm */
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 0;
+    display: flex; /* Siguron që input dhe butoni janë krah për krah */
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    /* Stili i inputit të kërkimit */
+    width: 100%; /* Merr hapësirën maksimale të mundshme */
+    margin-bottom: 0;
+    margin-right: 10px; /* Hapësirë ndërmjet inputit dhe butonit */
+    flex-grow: 1; /* Lejon që inputi të rritet */
+}
+
+.search-bar button[type="submit"] {
+    /* Stili i butonit të kërkimit */
+    width: auto; /* Përshtatet me tekstin, jo 100% */
+    padding: 12px 20px; /* Përputhje me lartësinë e inputit */
+    margin-bottom: 0; 
+    flex-shrink: 0; /* Butoni nuk zvogëlohet */
+}
+
+/* Stilizimi i ndarësit (---) që shfaqet pas kërkimit */
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+/* Stilizim i veçantë për rezultatet e kërkimit në search.php */
+.search-term { 
+    color: var(--primary-color); 
+    font-weight: bold; 
+}
