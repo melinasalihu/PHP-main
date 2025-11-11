@@ -1,34 +1,20 @@
-<<<<<<< HEAD
-<?php
-// db_config.php
 
+<?php
+// db_config.php - Konfigurimi i Lidhjes me Databazë
+
+// Të dhënat e lidhjes
 $servername = "localhost";
 $username = "root";
-$password = "";
-$dbname = "simple_blog";
+$password = ""; // Lëre bosh nëse s'ke fjalëkalim (standard i XAMPP)
+$dbname = "simple_blog"; 
 
-// Krijimi i lidhjes
+// Krijimi i lidhjes (duke përdorur funksionet MySQLi)
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Kontrolli i lidhjes
 if (!$conn) {
+    // Nëse lidhja dështon, shfaq mesazhin e gabimit
     die("Lidhja dështoi: " . mysqli_connect_error());
 }
-=======
-<?php
-// db_config.php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "simple_blog";
-
-// Krijimi i lidhjes
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Kontrolli i lidhjes
-if (!$conn) {
-    die("Lidhja dështoi: " . mysqli_connect_error());
-}
->>>>>>> e64f7dbfcfab5e039ad57c666537456aa99c4a7d
-?>
+// Nuk ka tag mbyllës ?>
